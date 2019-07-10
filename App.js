@@ -317,6 +317,7 @@ const App = () => {
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}
+          keyboardShouldPersistTaps={'handled'}
         >
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
@@ -395,8 +396,8 @@ const App = () => {
                   title={"Verify"}
                   onPress={async () => {
                     const output = await OpenPGP.verify(
-                      inputEncrypt,
                       signed,
+                      inputEncrypt,
                       publicKey
                     );
 
