@@ -6,7 +6,7 @@
  * @flow
  */
 
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -15,13 +15,13 @@ import {
   Text,
   StatusBar,
   TextInput,
-  Button
-} from "react-native";
+  Button,
+} from 'react-native';
 
-import { Colors } from "react-native/Libraries/NewAppScreen";
-import OpenPGP from "react-native-fast-openpgp";
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+import OpenPGP from 'react-native-fast-openpgp';
 
-const passphrase = "test";
+const passphrase = 'test';
 const privateKey = `-----BEGIN PGP PRIVATE KEY BLOCK-----
 
 lQPGBF0Tpe0BCADm+ja4vMKuodkQEhLm/092M/6gt4TaKwzv8QcA53/FrM3g8wab
@@ -124,7 +124,7 @@ const App = () => {
   const [encryptedSymmetric, setEncryptedSymmetric] = useState();
   const [decryptedSymmetric, setDecryptedSymmetric] = useState();
 
-  const [keyPair, setKeyPair] = useState({ publicKey: "", privateKey: "" });
+  const [keyPair, setKeyPair] = useState({ publicKey: '', privateKey: '' });
   return (
     <Fragment>
       <StatusBar barStyle="dark-content" />
@@ -132,7 +132,7 @@ const App = () => {
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}
-          keyboardShouldPersistTaps={"handled"}
+          keyboardShouldPersistTaps={'handled'}
         >
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
@@ -143,10 +143,10 @@ const App = () => {
                   setInputEncrypt(text);
                 }}
                 style={{ backgroundColor: Colors.white, borderRadius: 4 }}
-                placeholder={"insert message here"}
+                placeholder={'insert message here'}
               />
               <Button
-                title={"Encrypt"}
+                title={'Encrypt'}
                 onPress={async () => {
                   const output = await OpenPGP.encrypt(inputEncrypt, publicKey);
                   setEncrypted(output);
@@ -160,7 +160,7 @@ const App = () => {
               <View style={styles.sectionContainer}>
                 <Text style={styles.sectionTitle}>Decrypt</Text>
                 <Button
-                  title={"Decrypt"}
+                  title={'Decrypt'}
                   onPress={async () => {
                     const output = await OpenPGP.decrypt(
                       encrypted,
@@ -186,10 +186,10 @@ const App = () => {
                   setInputEncrypt(text);
                 }}
                 style={{ backgroundColor: Colors.white, borderRadius: 4 }}
-                placeholder={"insert message here"}
+                placeholder={'insert message here'}
               />
               <Button
-                title={"Sign"}
+                title={'Sign'}
                 onPress={async () => {
                   const output = await OpenPGP.sign(
                     inputEncrypt,
@@ -208,7 +208,7 @@ const App = () => {
               <View style={styles.sectionContainer}>
                 <Text style={styles.sectionTitle}>Verify</Text>
                 <Button
-                  title={"Verify"}
+                  title={'Verify'}
                   onPress={async () => {
                     const output = await OpenPGP.verify(
                       signed,
@@ -219,9 +219,9 @@ const App = () => {
                     setVerified(output);
                   }}
                 />
-                {typeof verified !== "undefined" && (
+                {typeof verified !== 'undefined' && (
                   <Text selectable style={styles.sectionDescription}>
-                    {verified ? "valid" : "invalid"}
+                    {verified ? 'valid' : 'invalid'}
                   </Text>
                 )}
               </View>
@@ -235,10 +235,10 @@ const App = () => {
                   setInputEncrypt(text);
                 }}
                 style={{ backgroundColor: Colors.white, borderRadius: 4 }}
-                placeholder={"insert message here"}
+                placeholder={'insert message here'}
               />
               <Button
-                title={"Encrypt Symmetric"}
+                title={'Encrypt Symmetric'}
                 onPress={async () => {
                   const output = await OpenPGP.encryptSymmetric(
                     inputEncrypt,
@@ -255,7 +255,7 @@ const App = () => {
               <View style={styles.sectionContainer}>
                 <Text style={styles.sectionTitle}>Decrypt Symmetric</Text>
                 <Button
-                  title={"Decrypt Symmetric"}
+                  title={'Decrypt Symmetric'}
                   onPress={async () => {
                     const output = await OpenPGP.decryptSymmetric(
                       encryptedSymmetric,
@@ -274,21 +274,25 @@ const App = () => {
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Generate</Text>
               <Button
-                title={"Generate"}
+                title={'Generate'}
                 onPress={async () => {
                   const output = await OpenPGP.generate({
-                    name: "test",
-                    email: "test@test.com",
+                    name: 'test',
+                    email: 'test@test.com',
+                    passphrase: 'test',
+                    keyOptions: {
+                      RSABits: 1024,
+                    },
                   });
                   setKeyPair(output);
                 }}
               />
               <View>
-                <Text style={{ fontWeight: "bold", fontSize: 22 }}>
+                <Text style={{ fontWeight: 'bold', fontSize: 22 }}>
                   PublicKey
                 </Text>
                 <Text selectable>{keyPair.publicKey}</Text>
-                <Text style={{ fontWeight: "bold", fontSize: 22 }}>
+                <Text style={{ fontWeight: 'bold', fontSize: 22 }}>
                   PrivateKey
                 </Text>
                 <Text selectable>{keyPair.privateKey}</Text>
@@ -303,32 +307,32 @@ const App = () => {
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: Colors.lighter
+    backgroundColor: Colors.lighter,
   },
   body: {
-    backgroundColor: Colors.white
+    backgroundColor: Colors.white,
   },
   sectionContainer: {
     backgroundColor: Colors.light,
     borderRadius: 10,
     padding: 20,
     margin: 20,
-    paddingHorizontal: 24
+    paddingHorizontal: 24,
   },
   sectionTitle: {
     fontSize: 24,
-    fontWeight: "600",
-    color: Colors.black
+    fontWeight: '600',
+    color: Colors.black,
   },
   sectionDescription: {
     marginTop: 8,
     fontSize: 18,
-    fontWeight: "400",
-    color: Colors.dark
+    fontWeight: '400',
+    color: Colors.dark,
   },
   highlight: {
-    fontWeight: "700",
-  }
+    fontWeight: '700'
+  },
 });
 
 export default App;
