@@ -19,100 +19,97 @@ import {
 } from 'react-native';
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import OpenPGP from 'react-native-fast-openpgp';
+import OpenPGP from '@nodeua/react-native-fast-openpgp';
 
 const passphrase = 'test';
 const privateKey = `-----BEGIN PGP PRIVATE KEY BLOCK-----
+Version: react-native-fast-openpgp
 
-lQPGBF0Tpe0BCADm+ja4vMKuodkQEhLm/092M/6gt4TaKwzv8QcA53/FrM3g8wab
-oksgIN1T+CscKXOY9GeJ530sBZgu9kTsMeQW3Uf76smo2CV1W7kSTMU+XE5ExGET
-+LhkKeHpXoLfZNegKuzH1Qo7DGDOByVrnijbZIukonGwvC/MTduxb69ub+YRhWJc
-fCjpMhm4WsC4h0Oz3ir5kx6NsN7XGVT5ghR9OEV6jlFmJ1nYYQxMlBGiATN5f2VR
-Y/T9QBLOEsLNvK4OqviLVvgPTQZBePoCeL73CxTbqVhcamvFRVicivl8AphDLATn
-1HlIjsTtbH5I/STb8UUdL+4ziRzsQukEw++xABEBAAH+BwMCgg+SBD0Y7LHmqHqo
-tQNJrhXRgflQyO4rApMl7dCsilQXPKOd2N85hJbg08PaIaD4dXIylaLF/SRVl5Cw
-Mbleqjw/ZNQLmJnTm/diQmTJKXLhsiHS5Cd7nV+KIMwwVX96TCczPqw0i5f2c1p4
-tplhJcqEMDA1uOhtALKXLTS3MUBIJV9izj+3HZFAngEJcTZnr8Jq7juEWXxdiSfA
-xen3gw6PlfNSvQDQa+D+AH1/k0mpgf07xMUrOVCCUNQJpPKqVWqeNYXGVujcHqD2
-FG4CK/lwB3jyVqLJyWsGH359Knhhbhdx879wFY6cldVqvHWk2wFYhzda+As8sJZ4
-A1Eyd38uwUBatszAR23ngaMQR3Lc3A/4LS6ahC4QbMtBYHM5Wse1EqD+pFnQs+cP
-qPLhuRnMPggYqr1DQYTL9b/f90zq2DW4ZKacG2rNdbTRvzmfWRdRzuhe+jg+8fVe
-1sa/BXNbi9JnvVunFxViKVtwdLorBklnJ/wxXpPNILX2EEXC5/Rn8DSPQPX/hJqN
-ObL8hE5HQWU/6jhudxvRQM87ebfvGoNOO+ws5HsrbWqS8sgPW/G/BYO429B86Y+q
-UY6CB1z/UtImogV6D6+nfUk9rcWRxdB0FcQqE0WlMWXB0lKzV1yiQQCZTDBdhqb4
-oVsHe7ugm9E2pz/0lAI11zyctLCqApC1wsjTHqyUPhTffm4UPlBBQg1JK+ksqVrb
-CyLvIgx9sLaicMFhL/askReu44jzofuGeTxZrsdzfycgHzFhnjMaQN5/nkSQ41m7
-r79VPVSLzXG/XTT4Yf1X8kXX6Sbs2TYn8sWs+Dq/xkebRc9oFVnOg3k890j1Eihx
-+/3KbwyxnxQEFtcbIOGmt46UKpYI0mI3EFhRUB6nZWA9wcahIctFMdsMoeR+a/N2
-EiINAZbYwpI7tFhUZXN0IENsaWVudCBQcmVwYWdvIChMbGF2ZSBkZSBjbGllbnRl
-IHV0aWxpemFkYSBlbiB0ZXN0IGF1dG9tYXRpemFkb3MpIDxjbGllbnRAdGVzdC5j
-b20+iQFOBBMBCAA4FiEEjO0uILc5+F8M/RB/gdA542JdgXAFAl0Tpe0CGwMFCwkI
-BwIGFQoJCAsCBBYCAwECHgECF4AACgkQgdA542JdgXCNRwf/eGLbWMMBA2Hmg+dY
-F/UGph9g7GsgKj7CshB5oLCXSXAitu7D2xI6yN4PLCs3tmhuoT4GPhYy6f7Al1ms
-rfDdcDe1O4JxQrtnLM8pMkyjME7mbNOsOSxFllmRt1nG1VOBHTVTdLAmK9Tn4EIi
-PQk+/x+R2TNdpubuEIMPvQhcjAW/bD4zMCgTB50C5KfydBZosuSk3WS/qNvJX7bQ
-DiQ4PmUwobNC1p72QqyyqriJF+7oCPOYmZXnoWhVl+QcfcPQ9OrhEWxZVsZaJ0fe
-GgPaF/a413GjWXg0UqR6oeSZUzEq1109ZC1TS2YngYQNN93jWj8DBbisgJZ1QVfX
-f0M+4J0DxgRdE6XtAQgA9y91os2/Fx0AG1Fz6lHuFHN2KUQl6/9cJCHu2rQyD9GO
-+LsXpJRzDxYcTvvKQS/2w64fuKI3Yw1vEbhN7YEkw6eSceGBt9nR8KaE2dZ/TfBX
-OfDGN847t59idzfOrzZEk/6g8yhH+0lH4rvihNMd/lNEFKLLS/YlSV2uM4PrXtMk
-6grfCMxm0OoOqgjcW22/W2YvsQ3ZfM93/vqGCDIWpIsbsIA7FjG5Wyx+8hNIJDMx
-D+T+QtTLEe08ta7Si+kT7D76mwl44qiNsoka8ABRF9c0IamaxUclZMzNbkERqhVf
-SAw6MCuOJMXs7pkuySxYK2c60BWNKDoac6Da1sZGpQARAQAB/gcDAtrcLO888FSk
-5gmauOr9eoV47yng0XL5MQNzu94y+pXNqfLSY+kab8oTLzv8pXv3pQF6HR9mYipM
-vwhH4G0wZ6uta70KWdIzTwHMQTRZKqa+rSRqVSk5WkGrzC07lyEuX8CdeWDpvz08
-FGIj2mbGmoPyufOuVOqsMdWSUKtR2HOlpqxGWwe6hj8kouvdC8g8ZoQSII7Fd/6C
-IiOwUrxiMeyF6g2aMUsp/r3O4hKKlNguRKsziu1kYcoIkVkdsDptD9q+a7ZKSk/+
-xjpq1yaQpqn2hrvhPgar2tWvyRcNnnbyb3L/nbgCCKvwTo0sdidjwFCz/3KxzX6L
-jflB59fwu61Ms82Xc5oAWgRTISed6jxNCHAC7c48BkV5p9MLrhCgrqKYcSXyEcZE
-s6W74vGfftK0150MnMRyKpjwrxerBuCK2LUbucm3lgyNJDkAEt7Nq8mv7tqiH4Yp
-Iy7F70hGyfuQvC1a8PIhROoB17OKXNyqUnWhgiAivUkMS8IcKRPRfYGROwY7+zax
-dNeH7PhgQN4s+mWXuqj70CJzs5M9u8z65YyPBQkQnNnpoXg72oLxUw3n6ecFiHN2
-S0lrtQ1qrYIDKyodCwnTRhF0bx8c2NRQoCSKqmYPoCVJKbW6VivyoF88B50eXIxF
-J1t02lkQvHs8xtVSe7Xz4WyxF38DD9utt4iyUk3IRu9+XP6N/fk6Yv8iIKuINQbr
-2a3B6DjUJrqVWL62di9suxDII01+klvGYSM/8AFJxghM8YkJf34d8SbeLsc3fh6p
-sKW4WJQ9+Av4tiI/wiJRD2HeXkmFPBVuhICCoFZCql4SRfXZLqTLeHo54AWM62Go
-YOh5jwOx7XH1lAwqTSDDshdgHXloxcuLW9ohPzOjos/mRObHLaVCzIYs4/O8w8XW
-zEYzkdJi9eilyPITNIkBNgQYAQgAIBYhBIztLiC3OfhfDP0Qf4HQOeNiXYFwBQJd
-E6XtAhsMAAoJEIHQOeNiXYFweVwH/jkhKVTwWOnQl7CllXmAuPZoTEPDMkeGNmKh
-rLRL4VLuNK7dDt+aHUgNB2TqTT76/fViEwm3/3pbhygfeEEEy5T6cIzgR3qD1MCW
-FJBFB3ENjZthIedg/jAtnUkwHdIv28Sx9RL4z41hLpXGRpWjiinAzoAwHGgV9CP7
-jUWzk5WSTrw7p/hF3Ycid3QOcZAm9MUXWINNG89u2ZTuETTzzLGkaQe514u2dqyp
-dJmM+fNpXSDjKMpeWxlgNLw9zIVJ+GjUVfsgew/ALE9lwSpxFRrqpDonlf0H83T0
-3SIPibrk16hzsMER2/OAr0hQynAbk3S37Sl9YuGzwBl0zETtFs8=
-=yXPi
+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
+15yK8KQkqw==
+=EpE0
 -----END PGP PRIVATE KEY BLOCK-----`;
 
 const publicKey = `-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: react-native-fast-openpgp
 
-mQENBF0Tpe0BCADm+ja4vMKuodkQEhLm/092M/6gt4TaKwzv8QcA53/FrM3g8wab
-oksgIN1T+CscKXOY9GeJ530sBZgu9kTsMeQW3Uf76smo2CV1W7kSTMU+XE5ExGET
-+LhkKeHpXoLfZNegKuzH1Qo7DGDOByVrnijbZIukonGwvC/MTduxb69ub+YRhWJc
-fCjpMhm4WsC4h0Oz3ir5kx6NsN7XGVT5ghR9OEV6jlFmJ1nYYQxMlBGiATN5f2VR
-Y/T9QBLOEsLNvK4OqviLVvgPTQZBePoCeL73CxTbqVhcamvFRVicivl8AphDLATn
-1HlIjsTtbH5I/STb8UUdL+4ziRzsQukEw++xABEBAAG0WFRlc3QgQ2xpZW50IFBy
-ZXBhZ28gKExsYXZlIGRlIGNsaWVudGUgdXRpbGl6YWRhIGVuIHRlc3QgYXV0b21h
-dGl6YWRvcykgPGNsaWVudEB0ZXN0LmNvbT6JAU4EEwEIADgWIQSM7S4gtzn4Xwz9
-EH+B0DnjYl2BcAUCXROl7QIbAwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgAAKCRCB
-0DnjYl2BcI1HB/94YttYwwEDYeaD51gX9QamH2DsayAqPsKyEHmgsJdJcCK27sPb
-EjrI3g8sKze2aG6hPgY+FjLp/sCXWayt8N1wN7U7gnFCu2cszykyTKMwTuZs06w5
-LEWWWZG3WcbVU4EdNVN0sCYr1OfgQiI9CT7/H5HZM12m5u4Qgw+9CFyMBb9sPjMw
-KBMHnQLkp/J0Fmiy5KTdZL+o28lfttAOJDg+ZTChs0LWnvZCrLKquIkX7ugI85iZ
-leehaFWX5Bx9w9D06uERbFlWxlonR94aA9oX9rjXcaNZeDRSpHqh5JlTMSrXXT1k
-LVNLZieBhA033eNaPwMFuKyAlnVBV9d/Qz7guQENBF0Tpe0BCAD3L3Wizb8XHQAb
-UXPqUe4Uc3YpRCXr/1wkIe7atDIP0Y74uxeklHMPFhxO+8pBL/bDrh+4ojdjDW8R
-uE3tgSTDp5Jx4YG32dHwpoTZ1n9N8Fc58MY3zju3n2J3N86vNkST/qDzKEf7SUfi
-u+KE0x3+U0QUostL9iVJXa4zg+te0yTqCt8IzGbQ6g6qCNxbbb9bZi+xDdl8z3f+
-+oYIMhakixuwgDsWMblbLH7yE0gkMzEP5P5C1MsR7Ty1rtKL6RPsPvqbCXjiqI2y
-iRrwAFEX1zQhqZrFRyVkzM1uQRGqFV9IDDowK44kxezumS7JLFgrZzrQFY0oOhpz
-oNrWxkalABEBAAGJATYEGAEIACAWIQSM7S4gtzn4Xwz9EH+B0DnjYl2BcAUCXROl
-7QIbDAAKCRCB0DnjYl2BcHlcB/45ISlU8Fjp0JewpZV5gLj2aExDwzJHhjZioay0
-S+FS7jSu3Q7fmh1IDQdk6k0++v31YhMJt/96W4coH3hBBMuU+nCM4Ed6g9TAlhSQ
-RQdxDY2bYSHnYP4wLZ1JMB3SL9vEsfUS+M+NYS6VxkaVo4opwM6AMBxoFfQj+41F
-s5OVkk68O6f4Rd2HInd0DnGQJvTFF1iDTRvPbtmU7hE088yxpGkHudeLtnasqXSZ
-jPnzaV0g4yjKXlsZYDS8PcyFSfho1FX7IHsPwCxPZcEqcRUa6qQ6J5X9B/N09N0i
-D4m65Neoc7DBEdvzgK9IUMpwG5N0t+0pfWLhs8AZdMxE7RbP
-=kbtq
+xsBNBF4nVGsBCAC6DoSqmsuekbnG1es6xKssagxC5LltwJVGMJNJbOKme0u6Hj2k
+LFidqJzWI54JRgsj7Ig8PO+HulqwMeFVn3lxGzhf/5We54LedHlHikKP8tlUHEKk
+7TTzgBEfR2CsO6YXSqGdXDKYnts5joxuROvnsZF0RKqDi3ITIFs5uiqiLix1aKw7
+m5o3QzJDmZ2CwiYCGaQqo9fXJ58TIKRjAzLxVNLEG3ncaDtOgrLyAihsr4UARDcm
+yTpxYM+nwuWte0v0DQ9IqHq5RT4ib7t5qgkODRY9k3LQKrQLG8UyCIfqHGgPjcac
+wJJcUyFDuOelDyPBA+9phEobHNadgbgEf3FvABEBAAHNFHRlc3QgPHRlc3RAdGVz
+dC5jb20+wsBoBBMBCAAcBQJeJ1RrCRD8TIk9mwPgDwIbAwIZAQILBwIVCAAAoTEI
+AKd3gcP2o6X6FBXkN7PYbB69G2j+omvwHOv88sVLwNM3UskDkkb0k9X0JMmhGJnO
+BPTMdMdfewj69ipfOTAPJ6Hvt7oPyZCDDrkowtSQ+jJhK/0RafJ7GUmJ6a+o7O17
+A++bkjO4s23aOBPssxVR4M/UFAkCrxEXz1N+BbSFmIrxUEdWUlqFekiO+vWKXeyG
+b014l+7bv3BJXWXJsC27Ib+aGPtxzve3XIaV9VB/a2s3op1BNI3tNZcLV+dDzeQK
+4GTTnpjnFZmA99M5+ju8aPQ/U8qyYvxspjVAnuzGpVtKPgHicKB9y/NueU9qNFTJ
+3TaylR0VVrA0/a2gCn+rH1XOwE0EXidUawEIANg745+owk6yRp997KO76CgIaxnX
+XjBTfGd++uxv4IPaF0snd1cS5v4FiQaiLlXxNiqb/lN+z0nvbj8dE18UH8VX9CBQ
+cbIzMT4/mmO9pVP/TWKwRQng+0wYxlEtoKdNwulzCEPL/M9THVsEqBzTYCG5Pd5Q
+E4nFi9qC1RlvKPAWuKCqK+LFm14F+JUpSalHeAwP4udSpYNSbi0Qp8+NIf5Bhvi7
+wmQLJlCJp4FNJuBMquxSSV4LBuNG9/KEuPTaeD4k6DeERLb9MtDCYmhtcQnYCnvM
+3lX3lOYGkqHH8IqpiJEDBY8ren7H8+LFRI3g05kGW97y+bDUvw1zmSnIPx8AEQEA
+AcLAXwQYAQgAEwUCXidUawkQ/EyJPZsD4A8CGwwAAJ6cCACeuFIujE89gxZ467PI
+LFrgTyGMS6cvDema3/8WNat8WpmzweSnkCKpJpcHApdMOCl2XVlZIMGgGZYNXfxb
+PI2TW7ELr1d3MLi+QlIduqgTqvUDP4w7eJi5Avv15cckcclt5YSF3QCUIsAgKDbK
+P8MZauczzotgcM5rxLXRHBY02D8rUDkO3iZxnXSt+P6RGl/pvYQkPGQYWtD9NoJe
+sm4etDg6KelwZYQR1SdVA5ql2wuXaSLwKCfMVfhZANaLt3sTa/f0J/4AwHXdCvL4
+gqifKFjKQk+SjR7e5rTT9T0aBn738ABg5PucxdkgPQmUYAuXPH7zE9/RwQnXnIrw
+pCSr
+=raaU
 -----END PGP PUBLIC KEY BLOCK-----`;
 const App = () => {
   const [inputEncrypt, setInputEncrypt] = useState();
@@ -124,7 +121,7 @@ const App = () => {
   const [encryptedSymmetric, setEncryptedSymmetric] = useState();
   const [decryptedSymmetric, setDecryptedSymmetric] = useState();
 
-  const [keyPair, setKeyPair] = useState({ publicKey: '', privateKey: '' });
+  const [keyPair, setKeyPair] = useState({ publicKey: '', privateKey: '', keyId: '' });
   return (
     <Fragment>
       <StatusBar barStyle="dark-content" />
@@ -148,7 +145,10 @@ const App = () => {
               <Button
                 title={'Encrypt'}
                 onPress={async () => {
-                  const output = await OpenPGP.encrypt(inputEncrypt, publicKey);
+                  const output = await OpenPGP.encryptWithMultipleKeys(
+                    inputEncrypt,
+                    [publicKey, keyPair.publicKey]
+                  );
                   setEncrypted(output);
                 }}
               />
@@ -284,10 +284,15 @@ const App = () => {
                       RSABits: 1024,
                     },
                   });
-                  setKeyPair(output);
+                  const keyId = await OpenPGP.getKeyId(output.publicKey);
+                  setKeyPair({ ...output, ...{ keyId: keyId } });
                 }}
               />
               <View>
+                <Text style={{ fontWeight: 'bold', fontSize: 22 }}>
+                  Key ID
+                </Text>
+                <Text selectable>{keyPair.keyId}</Text>
                 <Text style={{ fontWeight: 'bold', fontSize: 22 }}>
                   PublicKey
                 </Text>
